@@ -18,13 +18,13 @@
 	* *****************************************************************************/
 package at.bayava.olingo.service
 
-import org.apache.olingo.odata2.api.{ODataCallback, ODataService, ODataServiceFactory}
 import org.apache.olingo.odata2.api.edm.provider.EdmProvider
 import org.apache.olingo.odata2.api.exception.ODataException
 import org.apache.olingo.odata2.api.processor.{ODataContext, ODataErrorCallback, ODataSingleProcessor}
-import org.apache.olingo.odata2.jpa.processor.api.{ODataJPAContext, ODataJPATransaction, OnJPAWriteContent}
+import org.apache.olingo.odata2.api.{ODataCallback, ODataService, ODataServiceFactory}
 import org.apache.olingo.odata2.jpa.processor.api.exception.{ODataJPAErrorCallback, ODataJPARuntimeException}
 import org.apache.olingo.odata2.jpa.processor.api.factory.{ODataJPAAccessFactory, ODataJPAFactory}
+import org.apache.olingo.odata2.jpa.processor.api.{ODataJPAContext, ODataJPATransaction, OnJPAWriteContent}
 
 abstract class CustomODataJPAServiceFactory extends ODataServiceFactory {
 	private var oDataJPAContext: ODataJPAContext = null

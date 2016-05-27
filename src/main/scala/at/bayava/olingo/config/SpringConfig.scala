@@ -24,14 +24,6 @@ class SpringConfig {
 	@Autowired
 	var ltw: LoadTimeWeaver = _
 
-	//		@Bean
-	//		def createEmf: LocalEntityManagerFactoryBean = {
-	//			val lemfb = new LocalEntityManagerFactoryBean()
-	//			lemfb.setPersistenceUnitName("olingo")
-	//			lemfb.setJpaVendorAdapter(new EclipseLinkJpaVendorAdapter())
-	//			lemfb
-	//		}
-	//
 	@Bean
 	def createEmf: LocalContainerEntityManagerFactoryBean = {
 		val lcemfb = new LocalContainerEntityManagerFactoryBean()
@@ -40,8 +32,6 @@ class SpringConfig {
 		lcemfb.setJpaVendorAdapter(new EclipseLinkJpaVendorAdapter())
 		val properties = new Properties()
 		properties.setProperty("eclipselink.weaving", "static")
-		//		properties.setProperty("eclipselink.ddl-generation.output-mode", "both")
-		//		properties.setProperty("eclipselink.create-ddl-jdbc-file-name" ,"create.ddl")
 		lcemfb.setJpaProperties(properties)
 		lcemfb.setLoadTimeWeaver(ltw)
 		lcemfb
