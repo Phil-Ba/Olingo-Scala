@@ -16,7 +16,7 @@
         </servlet-class>
         <init-param>
             <param-name>org.apache.olingo.odata2.service.factory</param-name>
-            <param-value>at.bayava.olingo.service.AnnotationSampleServiceFactory</param-value>
+            <param-value>at.bayava.olingo.service.MyODataServiceFactory</param-value>
         </init-param>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
@@ -34,54 +34,4 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 
-    <!--<listener>-->
-    <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--</listener>-->
-    <!-- Configure ContextLoaderListener to use JavaConfigWebApplicationContext
-        instead of the default XmlWebApplicationContext -->
-    <!--<context-param>-->
-    <!--<param-name>contextClass</param-name>-->
-    <!--<param-value>org.springframework.config.java.JavaConfigWebApplicationContext</param-value>-->
-    <!--</context-param>-->
-    <!-- Configuration locations must consist of one or more comma- or space-delimited
-         fully-qualified @Configuration classes -->
-    <!--<context-param>-->
-    <!--<param-name>contextConfigLocation</param-name>-->
-    <!--<param-value>at.bayava.</param-value>-->
-    <!--</context-param>-->
-
-    <!-- Declare a Spring MVC DispatcherServlet as usual -->
-    <!--<servlet>-->
-    <!--<servlet-name>test</servlet-name>-->
-    <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
-    <!-- Configure DispatcherServlet to use JavaConfigWebApplicationContext
-         instead of the default XmlWebApplicationContext -->
-    <!--<init-param>-->
-    <!--<param-name>contextClass</param-name>-->
-    <!--<param-value>org.springframework.config.java.JavaConfigWebApplicationContext</param-value>-->
-    <!--</init-param>-->
-    <!-- Again, config locations must consist of one or more comma- or space-delimited
-         and fully-qualified @Configuration classes -->
-    <!--<init-param>-->
-    <!--<param-name>contextConfigLocation</param-name>-->
-    <!--<param-value>example.web.WebBeansConfig</param-value>-->
-    <!--</init-param>-->
-
-    <!--<servlet>-->
-    <!--<servlet-name>MyODataSampleServlet</servlet-name>-->
-    <!--<servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet</servlet-class>-->
-    <!--<init-param>-->
-    <!--<param-name>javax.ws.rs.Application</param-name>-->
-    <!--<param-value>org.apache.olingo.odata2.core.rest.app.ODataApplication</param-value>-->
-    <!--</init-param>-->
-    <!--<init-param>-->
-    <!--<param-name>org.apache.olingo.odata2.service.factory</param-name>-->
-    <!--<param-value>at.bayava.olingo.service.AnnotationSampleServiceFactory</param-value>-->
-    <!--</init-param>-->
-    <!--<load-on-startup>1</load-on-startup>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-    <!--<servlet-name>MyODataSampleServlet</servlet-name>-->
-    <!--<url-pattern>/odata.svc/*</url-pattern>-->
-    <!--</servlet-mapping>-->
 </web-app>

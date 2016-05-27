@@ -13,27 +13,30 @@ import scala.reflect.runtime.{universe => ru}
 	* Created by pbayer.
 	*/
 
-class AnnotationSampleServiceFactory extends CustomODataJPAServiceFactory {
+class MyODataServiceFactory extends CustomBaseODataJPAServiceFactory {
+
 	override def initializeODataJPAContext: ODataJPAContext = {
 		val oDataJPAContext: ODataJPAContext = getODataJPAContext
-		oDataJPAContext.setEntityManagerFactory(AnnotationSampleServiceFactory.emf)
+		oDataJPAContext.setEntityManagerFactory(MyODataServiceFactory.emf)
 		oDataJPAContext.setPersistenceUnitName("olingo")
 		oDataJPAContext
 	}
 
 	override def getCallback[T <: ODataCallback](callbackInterface: Class[T]): T = {
 		callbackInterface match {
-			case _ if callbackInterface.isAssignableFrom(classOf[ErrorCallbackHandler]) => new ErrorCallbackHandler()
-				.asInstanceOf[T]
+			case _ if callbackInterface.isAssignableFrom(classOf[ErrorCallbackHandler]) =>
+				MyODataServiceFactory.callbackHandler.asInstanceOf[T]
 			case _ => super.getCallback(callbackInterface)
 		}
 	}
 }
 
 @Component
-object AnnotationSampleServiceFactory {
+object MyODataServiceFactory {
 
 	@Autowired
 	private var emf: EntityManagerFactory = _
+
+	private val callbackHandler = new ErrorCallbackHandler()
 
 }

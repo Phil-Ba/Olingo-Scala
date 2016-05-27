@@ -26,7 +26,7 @@ import org.apache.olingo.odata2.jpa.processor.api.exception.{ODataJPAErrorCallba
 import org.apache.olingo.odata2.jpa.processor.api.factory.{ODataJPAAccessFactory, ODataJPAFactory}
 import org.apache.olingo.odata2.jpa.processor.api.{ODataJPAContext, ODataJPATransaction, OnJPAWriteContent}
 
-abstract class CustomODataJPAServiceFactory extends ODataServiceFactory {
+abstract class CustomBaseODataJPAServiceFactory extends ODataServiceFactory {
 	private var oDataJPAContext: ODataJPAContext = null
 	private var oDataContext: ODataContext = null
 	private var setDetailErrors: Boolean = false
@@ -37,7 +37,7 @@ abstract class CustomODataJPAServiceFactory extends ODataServiceFactory {
 	def initializeODataJPAContext: ODataJPAContext
 
 	@throws[ODataException]
-	final def createService(ctx: ODataContext): ODataService = {
+	override final def createService(ctx: ODataContext): ODataService = {
 		oDataContext = ctx
 		oDataJPAContext = initializeODataJPAContext
 		validatePreConditions
