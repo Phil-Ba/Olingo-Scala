@@ -1,7 +1,7 @@
 package at.bayava.olingo.model
 
 import javax.persistence._
-import javax.validation.constraints.NotNull
+import javax.validation.constraints.{NotNull, Size}
 
 import scala.beans.BeanProperty
 
@@ -22,6 +22,7 @@ class Person {
 	var name: String = _
 
 	@BeanProperty
+	@Size(min = 3, max = 30)
 	var lastName: String = _
 
 	@BeanProperty
